@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Link to the manifest -->
+<link rel="manifest" href="manifest.json">
+
+<!-- Register Service Worker -->
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js')
+            .then(() => console.log("Service Worker Registered"))
+            .catch((err) => console.log("Service Worker Registration Failed", err));
+    }
+</script>
+
+<!-- Add a favicon -->
+<link rel="icon" href="icon-192x192.png" type="image/png">
+
+</head>
+<body>
+    <div class="app-container">
+        <h1 class="title">Weather App</h1>
+        <div class="input-container">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button onclick="getWeather()"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="weather-card" id="weatherInfo">
+            <p>Enter a city to get the weather details!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
